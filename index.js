@@ -20,8 +20,8 @@ app.get('/', async (req, res) => {
     }
     try {
         const resp = await axios.get(petsEndpoint, { headers });
-        const data = resp.data.results;
-        res.json(data);
+        const pets = resp.data.results;
+        res.render('homepage', { pageTitle: 'Update Custom Object Form | Integrating With HubSpot I Practicum', pets });
     } catch (error) {
         console.error(error);
     }
