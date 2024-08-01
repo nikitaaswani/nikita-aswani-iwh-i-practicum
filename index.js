@@ -11,7 +11,6 @@ app.use(express.json());
 const PRIVATE_APP_ACCESS = '';
 
 // A new app.get route for the homepage to call your custom object data. Pass this data along to the front-end and create a new pug template in the views folder.
-
 app.get('/', async (req, res) => {
     const petsEndpoint = 'https://api.hubspot.com/crm/v3/objects/pets?properties=pet_name,pet_type,preferred_food';
     const headers = {
@@ -28,7 +27,6 @@ app.get('/', async (req, res) => {
 });
 
 // A new app.get route for the form to create or update new custom object data. Send this data along in the next route.
-
 app.get('/update-pets', (req, res) => {
   try {
     res.render('update', { pageTitle: 'Update Custom Object Pets Form | Integrating With HubSpot I Practicum'});
@@ -38,7 +36,6 @@ app.get('/update-pets', (req, res) => {
 });
 
 // A new app.post route for the custom objects form to create or update your custom object data. Once executed, redirect the user to the homepage.
-
 app.post('/update-pets', async (req, res) => {
   const petsEndpoint = 'https://api.hubspot.com/crm/v3/objects/pets';
   const update = {
